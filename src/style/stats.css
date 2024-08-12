@@ -1,0 +1,32 @@
+.stats-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.3em;
+  text-align: center;
+  background-color: var(--simple-white);
+  padding: 0.4em;
+  border-radius: 7px;
+}
+@media (min-width: 700px) {
+  .stats-container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
+
+.stat-title {
+  margin-bottom: 0.5em;
+}
+
+.stat-title-bold {
+  font-weight: bold;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}

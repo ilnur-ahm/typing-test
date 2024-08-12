@@ -1,0 +1,25 @@
+.base-button {
+  display: block;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: inherit;
+  padding: 0.5em 1.5em;
+  margin: auto;
+  border-radius: 7px;
+}
+
+.dark-button {
+  color: var(--primary-dark);
+  background-color: var(--button-light);
+  border: 2px solid transparent;
+  transition: 0.2s linear;
+}
+.dark-button:hover {
+  color: var(--simple-white);
+  background-color: var(--hover-color);
+  border: 2px solid var(--decor-color);
+}
+.dark-button:active {
+  box-shadow: inset 2px 2px 5px 1px rgba(var(--primary-dark-rgb), 0.25);
+}

@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Marcellus&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+:root {
+  --primary-light: #323437;
+  --primary-dark: #646669;
+  --button-light: #e2b714;
+  --decor-color: #cdb4db;
+  --right-color: #80c746;
+  --wrong-color: #dd1319;
+  --simple-white: #d1d0c5;
+  --hover-color: #937919;
+
+  --decor-color-rgb: 205, 180, 219;
+  --primary-dark-rgb: 22, 66, 91;
+  --simple-black-rgb: 0, 0, 0;
+
+  --heading-font: "Marcellus", serif;
+  --paragraph-font: "Ubuntu", sans-serif;
+}

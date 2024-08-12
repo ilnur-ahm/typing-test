@@ -78,7 +78,10 @@ const Text: FunctionComponent = () => {
   }, [dispatch, text]);
 
   return (
-    <div className="test-text-wrapper">
+    <div
+      className="test-text-wrapper"
+      onClick={() => inputRef.current?.focus()}
+    >
       {error && <p className="error-text">{error}</p>}
       {isLoading ? (
         <Loader />
@@ -89,7 +92,7 @@ const Text: FunctionComponent = () => {
           <input
             type="text"
             ref={inputRef}
-            style={{ position: "absolute", opacity: 0, width: 0, height: 0 }} // Скрытое текстовое поле
+            style={{ position: "absolute", opacity: 0, width: 0, height: 0 }}
           />
           {text.map((item, index) => {
             return (

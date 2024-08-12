@@ -41,10 +41,14 @@ const Test: FunctionComponent = () => {
     dispatch(resetTestState());
     dispatch(resetTextState());
     dispatch(resetSeconds());
+    inputRef.current?.focus();
   }
 
   return (
-    <section className="test-container">
+    <section
+      className="test-container"
+      onClick={() => inputRef.current?.focus()}
+    >
       <Text />
       <Stats>
         <Button

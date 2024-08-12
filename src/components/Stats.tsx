@@ -1,10 +1,7 @@
 import { FunctionComponent, useState, useEffect } from "react";
-
 import "../style/stats.css";
-
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { increaseSeconds } from "../redux/store/timerSlice";
-
 import { speedCounting, accuracyCounting } from "../helpers/statsCounting";
 
 type StatsProps = {

@@ -1,5 +1,4 @@
 import { ComponentPropsWithoutRef } from 'react';
-
 import '../../style/ui/select.css';
 
 interface SelectProps extends ComponentPropsWithoutRef<'select'> {

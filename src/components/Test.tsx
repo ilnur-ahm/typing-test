@@ -1,7 +1,5 @@
-import { FunctionComponent } from "react";
-
+import { FunctionComponent, useRef } from "react";
 import "../style/test.css";
-
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { resetSeconds } from "../redux/store/timerSlice";
 import {
@@ -10,9 +8,7 @@ import {
   setIsTestStarted,
 } from "../redux/store/testSlice";
 import { resetTextState, setText } from "../redux/store/textSlice";
-
 import { restoreText } from "../helpers/charTransform";
-
 import Text from "./Text";
 import Stats from "./Stats";
 import ModalWindow from "./ui/ModalWindow";
@@ -24,6 +20,8 @@ const Test: FunctionComponent = () => {
     (state) => state.testSlice.isTestFinished
   );
   const text = useAppSelector((state) => state.textSlice.text);
+  // Ссылка на текстовое поле
+  const inputRef = useRef<HTMLInputElement>(null);
   const testStateTogglerOff = () => dispatch(setIsTestStarted(false));
 
   function restart() {
@@ -35,6 +33,8 @@ const Test: FunctionComponent = () => {
       // Сброс состояния завершения теста
       dispatch(setIsTestFinished(false));
     }
+    // Установка фокуса на текстовое поле
+    inputRef.current?.focus();
   }
 
   function newTest() {
@@ -67,6 +67,11 @@ const Test: FunctionComponent = () => {
           </div>
         </ModalWindow>
       )}
+      <input
+        type="text"
+        ref={inputRef}
+        style={{ position: "absolute", opacity: 0, width: 0, height: 0 }} // Скрытое текстовое поле
+      />
     </section>
   );
 };

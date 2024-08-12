@@ -1,17 +1,13 @@
-import { FunctionComponent, ComponentPropsWithoutRef } from 'react';
+import { FunctionComponent, ComponentPropsWithoutRef } from "react";
+import "../../style/ui/buttons.css";
 
-import '../../style/ui/buttons.css';
-
-interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
+interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
   btnText: string;
 }
 
-const Button:FunctionComponent<ButtonProps> = ( {btnText, ...props} ) => {
+const Button: FunctionComponent<ButtonProps> = ({ btnText, ...props }) => {
   return (
-    <button
-      className='uppercase-text base-button dark-button'
-      {...props}
-    >
+    <button className="uppercase-text base-button dark-button" {...props}>
       {btnText}
     </button>
   );

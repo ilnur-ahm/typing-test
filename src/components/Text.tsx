@@ -1,5 +1,4 @@
-import { FunctionComponent, useEffect } from "react";
-
+import { FunctionComponent, useEffect, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import {
   fetchText,
@@ -10,7 +9,6 @@ import {
 } from "../redux/store/textSlice";
 import { setIsTimerOn } from "../redux/store/timerSlice";
 import { setIsTestFinished } from "../redux/store/testSlice";
-
 import { getCurrentChar, compareChars } from "../helpers/charTransform";
 import Loader from "./ui/Loader";
 
@@ -27,6 +25,8 @@ const Text: FunctionComponent = () => {
     (state) => state.textSlice.pressingCount
   );
   const sentences = useAppSelector((state) => state.testSlice.sentences);
+  // Ссылка на текстовое поле
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     // Загрузка текста при монтировании компонента
@@ -43,6 +43,8 @@ const Text: FunctionComponent = () => {
     if (pressingCount === 0 && text.length > 0) {
       // Запуск таймера при начале ввода
       dispatch(setIsTimerOn(true));
+      // Установка фокуса на текстовое поле
+      inputRef.current?.focus();
     }
 
     if (currentCharIndex < text.length) {
@@ -82,6 +84,13 @@ const Text: FunctionComponent = () => {
         <Loader />
       ) : (
         <div>
+          {/* Скрытое текстовое поле, для корректной работы на мобильных
+          устройствах */}
+          <input
+            type="text"
+            ref={inputRef}
+            style={{ position: "absolute", opacity: 0, width: 0, height: 0 }} // Скрытое текстовое поле
+          />
           {text.map((item, index) => {
             return (
               <span className={item.class} key={index}>

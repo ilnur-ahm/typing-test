@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-
 import getText from "../../api/getText";
-
 import { TextType } from "../../types/types";
 
 type TextState = {
